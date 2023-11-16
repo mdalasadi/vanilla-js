@@ -1,0 +1,348 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #dfe3ee;
+  color: #333;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+}
+
+h1,
+h2 {
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+input,
+button:focus {
+  outline: none;
+}
+
+/* //////////////////////////////////// */
+.container {
+  max-width: 1300px;
+  margin: auto;
+  padding: 0 1.5rem;
+  overflow: hidden;
+}
+
+.title {
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+/* //////////////////////////////////// */
+nav {
+  background-color: #333;
+  color: #fff;
+}
+nav .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+nav .logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #fff;
+}
+nav .logo h1 {
+  margin: 0 1rem;
+  font-size: 2.5rem;
+  font-weight: 300;
+}
+nav .logo h1 span {
+  font-family: 'Yellowtail', cursive;
+}
+
+nav .tmdb {
+  width: 70px;
+}
+
+/* //////////////////////////////////// */
+#backdrop_path {
+  color: #fff;
+  height: calc(100vh - 81px);
+  position: relative;
+  z-index: 0;
+}
+#backdrop_path::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(51, 51, 51, 0.5);
+  z-index: -1;
+}
+#backdrop_path .container {
+  height: 100%;
+}
+#backdrop_path .movie-story {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr) [2];
+  grid-template-columns: repeat(2, 1fr);
+  height: 100%;
+}
+#backdrop_path .movie-story > div {
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
+  align-self: center;
+}
+#backdrop_path .movie-story h1 {
+  font-size: 5rem;
+  font-weight: 300;
+}
+#backdrop_path .movie-story p {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+/* //////////////////////////////////// */
+#home-a {
+  background-color: #333;
+  color: #fff;
+  padding: 2rem;
+}
+#home-a .search {
+  position: relative;
+}
+#home-a input[type='search'] {
+  width: 100%;
+  height: 3rem;
+  padding: 0.5rem 1rem;
+  padding-left: 3rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-family: inherit;
+}
+#home-a i {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  color: #333;
+  -webkit-transform: scale(1.5);
+  transform: scale(1.5);
+}
+
+/* //////////////////////////////////// */
+#home-b {
+  margin: 2rem 0;
+}
+
+#home-b .popular-movies-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr) [4];
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  padding-bottom: 3rem;
+  margin-bottom: 2rem;
+}
+
+/* //////////////////////////////////// */
+.spinner-5 {
+  width: 75px;
+  height: 75px;
+  display: grid;
+  border:4px solid #0000;
+  border-radius: 50%;
+  border-right-color:#25b09b;
+  animation: s5 1s infinite linear;
+  margin: 3rem auto;
+}
+.spinner-5::before,
+.spinner-5::after {    
+  content:"";
+  grid-area: 1/1;
+  margin:2px;
+  border:inherit;
+  border-radius: 50%;
+  animation: s5 2s infinite;
+}
+.spinner-5::after {
+  margin:8px;
+  animation-duration: 3s;
+}
+
+@keyframes s5{ 
+  100%{transform: rotate(1turn)}
+}
+
+/* //////////////////////////////////// */
+#movie-showcase {
+  height: calc(100vh - 81px);
+  color: #fff;
+  padding: 1.5rem 0 0 0.5rem;
+  overflow: hidden;
+}
+#movie-showcase .movie-card {
+  background-color: rgba(51, 51, 51, 0.7);
+  color: #fff;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+#movie-showcase .movie-card img {
+  width: 340px;
+}
+#movie-showcase .movie-card > div {
+  padding: 2rem;
+}
+#movie-showcase .movie-card .movie-title {
+  font-weight: 300;
+  font-size: 2rem;
+}
+#movie-showcase .movie-card .genres {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+#movie-showcase .movie-card .genres li {
+  padding: 0 1rem;
+}
+#movie-showcase .movie-card .genres li::before {
+  content: '* ';
+}
+#movie-showcase .movie-card .rating {
+  background-color: #dfe3ee;
+  color: #333;
+  border-radius: 50px;
+  height: 0.7rem;
+  width: 100%;
+  margin: 0.3rem 0;
+  overflow: hidden;
+  position: relative;
+}
+#movie-showcase .movie-card .rating div {
+  height: 100%;
+  background-color: green;
+}
+#movie-showcase .movie-card .rating div span {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-size: 0.8rem;
+  color: #000;
+}
+#movie-showcase .movie-card .director {
+  margin-top: 2rem;
+  font-weight: 300;
+}
+#movie-showcase .movie-card .director .director-name {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* //////////////////////////////////// */
+#movie-a {
+  background-color: #333;
+  color: #fff;
+  padding: 2rem;
+}
+#movie-a .detail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+}
+#movie-a .detail div {
+  padding: 1rem;
+}
+#movie-a h3 {
+  margin-top: 0.6rem;
+  font-weight: 400;
+}
+
+/* //////////////////////////////////// */
+#movie-b {
+  margin: 2rem 0;
+}
+#movie-b .actors-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr) [4];
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+#movie-b .actors-grid > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  overflow: hidden;
+}
+#movie-b .actors-grid > div img {
+  width: 30%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+#movie-b .actors-grid > div > div {
+  padding: 1rem;
+}
+#movie-b .actors-grid h4{
+  font-weight: 400;
+}
+#movie-b .actors-grid h5 {
+  font-weight: 300;
+}
+/* //////////////////////////////////// */

@@ -1,0 +1,86 @@
+.container {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  overflow: hidden;
+}
+
+.primary-text {
+  color: $primary-color;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.bold-text {
+  font-weight: 700;
+}
+
+.section-title {
+  font-size: 1.75rem;
+  text-align: center;
+}
+
+// Buttons
+%btn-shared {
+  display: inline-block;
+  border: none;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 0.8rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+.btn {
+  &-primary {
+    @extend %btn-shared;
+    @include setBackgroundColor($primary-color);
+    padding: 0.7rem 5rem 0.7rem 2rem;
+
+    &:hover {
+      background-color: darken($primary-color, 15%);
+    }
+  }
+
+  &-search {
+    @extend %btn-shared;
+  }
+}
+
+// Padding & Margins
+@for $i from 1 to 6 {
+  .p-#{$i} {
+    padding: #{$i}rem;
+  }
+
+  .py-#{$i} {
+    padding: #{$i}rem 0;
+  }
+
+  .px-#{$i} {
+    padding: 0 #{$i}rem;
+  }
+
+  .m-#{$i} {
+    margin: #{$i}rem;
+  }
+
+  .my-#{$i} {
+    margin: #{$i}rem 0;
+  }
+
+  .mx-#{$i} {
+    margin: 0 #{$i}rem;
+  }
+}

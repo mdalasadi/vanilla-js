@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <!-- ICONS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+  <!-- JS -->
+  <script src="app.js" defer></script>
+  <title>Random Person</title>
+</head>
+<body>
+  <div class="body-bg-dark"></div>
+  <div class="container">
+    <div class="container-bg-grey"></div>
+    <div class="profile">
+      <img id="avatar" src="https://randomuser.me/api/portraits/men/88.jpg" alt="person name">
+    </div>
+    <p id="info-decs" class="info-decs">My name is</p>
+    <h2 id="info" class="info">Larry Smith</h2>
+    <div class="person-info">
+      <div id="name" class="active" title="name"><i class="fas fa-user fa-2x"></i></div>
+      <div id="email" title="email"><i class="fas fa-envelope-open fa-2x"></i></div>
+      <div id="age" title="age"><i class="fas fa-calendar-day fa-2x"></i></div>
+      <div id="address" title="address"><i class="fas fa-map-marked-alt fa-2x"></i></div>
+      <div id="phone" title="phone number"><i class="fas fa-phone-alt fa-2x"></i></div>
+      <div id="password" title="password"><i class="fas fa-user-lock fa-2x"></i></div>
+    </div>
+    <button type="button" id="random" class="btn-random">Random User</button>
+  </div>
+</body>
+</html>

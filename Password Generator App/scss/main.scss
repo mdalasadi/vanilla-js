@@ -1,0 +1,205 @@
+$darkColor_L1: #15202b;
+$darkColor_L2: #192734;
+$darkColor_L3: #22303c;
+$lightColor: #fff;
+$primaryColor: #8899ac;
+
+// Set Text Color Based On Background Color
+@function setTextColor($bgColor) {
+  @if (lightness($bgColor) > 65) {
+    @return $darkColor_L1;
+  } @else {
+    @return $lightColor;
+  }
+}
+
+// Set Backgroun color & text color (based on that background color).
+@mixin setBackgroundColor($bgColor) {
+  background-color: $bgColor;
+  color: setTextColor($bgColor);
+}
+
+// General Styling
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  @include setBackgroundColor($darkColor_L1);
+  font-family: "lato", sans-serif;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+h1,
+h2 {
+  line-height: 1.2;
+}
+
+// Utilities
+.container {
+  @include setBackgroundColor($darkColor_L3);
+  box-shadow: 1px 1px 15px 1px rgba($darkColor_L2, 1);
+  width: 350px;
+  max-width: 70%;
+  border-radius: 5px;
+  padding: 1rem;
+  margin: auto;
+  overflow: hidden;
+}
+
+%btn-shared {
+  display: inline-block;
+  cursor: pointer;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem;
+  font-family: inherit;
+  transition: all 0.5s ease-out;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.btn {
+  &-primary {
+    @include setBackgroundColor($primaryColor);
+    @extend %btn-shared;
+
+    &:hover {
+      background-color: darken($primaryColor, 15%);
+    }
+  }
+
+  &-block {
+    width: 100%;
+    @extend %btn-shared;
+    display: block;
+  }
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+// Main Styling
+header h1 {
+  text-align: center;
+  font-size: 1.7rem;
+  margin-bottom: 1rem;
+}
+
+.output {
+  position: relative;
+  margin-bottom: 1rem;
+
+  .form-control {
+    @include setBackgroundColor($darkColor_L1);
+    width: 100%;
+    height: 45px;
+    font-size: 1rem;
+    border: 1px solid $primaryColor;
+    border-radius: 5px;
+    padding: 0.5rem;
+    padding-right: 2.5rem;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .btn-primary {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+}
+
+input[type="number"] {
+  @include setBackgroundColor($darkColor_L1);
+  padding: 0.2rem 0.5rem;
+  border: 1px solid $primaryColor;
+  border-radius: 5px;
+}
+
+// Checkbox styling
+input[type="checkbox"] {
+  appearance: none;
+  display: inline-block;
+  background-color: $darkColor_L1;
+  padding: 0.5rem;
+  position: relative;
+
+  &:checked::after {
+    content: "\2714";
+    position: absolute;
+    top: 0px;
+    left: 3px;
+    color: setTextColor($darkColor_L1);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+
+// Footer
+footer {
+  @include setBackgroundColor($darkColor_L3);
+  width: 100%;
+  padding: 1rem 2.5rem;
+
+  &.row {
+    margin: 0;
+  }
+
+  .social {
+    a {
+      color: $lightColor;
+      margin-right: 1rem;
+    }
+  }
+}
+
+// RWD
+@media screen and (max-width: 600px) {
+  footer {
+    &.row {
+      display: initial;
+      text-align: center;
+    }
+    .social {
+      margin-top: 0.5rem;
+    }
+  }
+}
+
+@media screen and(max-width: 400px) {
+  header h1 {
+    font-size: 1.2rem;
+  }
+  label {
+    font-size: 0.9rem;
+  }
+  %btn-shared {
+    font-size: 0.9rem;
+  }
+  footer p {
+    font-size: 0.7rem;
+  }
+}

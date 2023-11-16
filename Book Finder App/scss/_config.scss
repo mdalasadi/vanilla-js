@@ -1,0 +1,18 @@
+$primary-color: #62add7;
+$light-color: #eff2f1;
+$dark-color: #343a40;
+
+// Set Text Color
+@function setTextColor($bgColor) {
+  @if (lightness($bgColor) > 50) {
+    @return $light-color;
+  } @else {
+    @return $dark-color;
+  }
+}
+
+// Set Background Color
+@mixin setBackgroundColor($color) {
+  background-color: $color;
+  color: setTextColor($color);
+}

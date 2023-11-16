@@ -1,0 +1,200 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+  background-color: #133337;
+  color: #fff;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  padding: 1.5rem;
+}
+
+.section {
+  &-a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    header {
+      margin-bottom: 3rem;
+    }
+
+    .input-area {
+      position: relative;
+      width: 70%;
+
+      input[type="text"] {
+        width: 100%;
+        padding: 0.5rem;
+        padding-left: 3rem;
+        border: 1px solid #bbb;
+        border-radius: 5px;
+        background-color: transparent;
+        color: #fff;
+        font-size: 2.5rem;
+        text-align: center;
+      }
+
+      .money-sign {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #bbb;
+        color: #333;
+        width: 40px;
+        height: 63px;
+        line-height: 63px;
+        padding: 0 0.3rem;
+        font-size: 1rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        border-radius: 5px 0 0 5px;
+      }
+    }
+  }
+
+  &-b {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0.5rem 1rem;
+
+    select:focus, button:focus {
+      outline: none;
+    }
+
+    select {
+      appearance: none;
+      padding: 0.5rem;
+      padding-left: 1.5rem;
+      background: transparent;
+      color: #fff;
+      border: none;
+      background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 140 140' width='18' height='18' xmlns='http://www.w3.org/2000/svg'><g><path d='m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z' fill='white'/></g></svg>");
+      background-repeat: no-repeat;
+      background-position-x: 0;
+      background-position-y: 6px;
+      
+      option {
+        background-color: #333;
+        color: #fff;
+      }
+    }
+
+    .btn-swap {
+      cursor: pointer;
+      margin: 0 1rem;
+      background-color: transparent;
+      color: rgba(#fff, 0.5);
+      border: none;
+      position: relative;
+
+      .to {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        font-size: 0.75rem;
+      }
+
+      i {
+        transition: transform 0.3s linear;
+      }
+    }
+
+    .btn-convert {
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 1rem;
+      text-transform: uppercase;
+      text-align: center;
+      box-shadow: 0 0 15px rgba(#000, 0.3);
+      background-color: #fff;
+      color: #333;
+      margin: 0 1rem;
+      border: none;
+      border-radius: 50%;
+      padding: 1rem;
+      transition: all 0.2s ease-out;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &:active {
+        transform: scale(0.9);
+      }
+    }
+  }
+
+  &-c {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 20%;
+
+    h2 {
+      font-size: 2.5rem;
+    }
+    
+    p {
+      font-size: 0.9rem;
+      color: #bbb;
+    }
+
+    .loader {
+      display: flex;
+
+      .circle {
+        width: 15px;
+        height: 15px;
+        background-color: #bbb;
+        margin-left: 1rem;
+        border-radius: 50%;
+        animation: bounce 0.5s ease-in 0s infinite;
+
+        &:nth-child(2) {
+          animation-delay: 0.1s;
+        }
+
+        &:nth-child(3) {
+          animation-delay: 0.2s;
+        }
+      }
+
+      @keyframes bounce {
+        0%, 100% {
+          transform: translateY(0);
+        } 50% {
+          transform: translateY(-10px);
+        }
+      }
+    }
+  }
+}
+
+footer {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #bbb;
+}

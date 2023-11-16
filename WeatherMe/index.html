@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Weather app</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="header">
+      <div class="showcase">
+        <div class="container header-content">
+          <p id="w-location">City, Country</p>
+          <h1 id="time"></h1>
+          <h1 id="w-string" class="l-heading">degree in celsius</h1>
+          <p class="lead" id="w-desc">weather description</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <main id="main">
+      <!-- Main details -->
+      <div class="w-details-container">
+        <ul class="list-group" id="w-details-1">
+          <li class="list-group-item" id="w-sunrise">sunrise</li>
+          <li class="list-group-item" id="w-min">min</li>
+          <li class="list-group-item" id="w-humidity">humidity</li>
+          <li class="list-group-item" id="w-feels-like">feels like</li>
+        </ul>
+        <ul class="list-group" id="w-details-2">
+          <li class="list-group-item" id="w-sunset">sunset</li>
+          <li class="list-group-item" id="w-max">max</li>
+          <li class="list-group-item" id="w-wind">wind</li>
+          <li class="list-group-item" id="w-pressure">pressure</li>
+        </ul>
+      </div>
+      <!-- Add Location Button -->
+      <a href="#" id="show-modal" class="btn btn-primary btn-block"
+        >+ Add Location</a
+      >
+    </main>
+
+    <!-- Modal -->
+    <div class="modal" id="w-modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Change Location</h5>
+              <span id="close-modal-sign">&times</span>
+            </div>
+            <div class="modal-body">
+              <form id="w-form">
+                <div class="form-group">
+                  <label for="city">City</label>
+                  <input
+                    type="text"
+                    id="city"
+                    class="form-control"
+                    placeholder="Choose your Ciyt"
+                  />
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <a href="#" id="close-btn" class="btn btn-modal btn-secondary"
+                >Close</a
+              >
+              <a href="#" class="btn btn-modal btn-primary" id="w-current-loc"
+                >Current Location</a
+              >
+              <a href="#" class="btn btn-modal btn-primary" id="w-change-loc"
+                >Change The City</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/storage.js"></script>
+    <script src="js/images.js"></script>
+    <script src="js/weather.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
